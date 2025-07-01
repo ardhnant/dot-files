@@ -1,0 +1,50 @@
+* {
+  border: none;
+  border-radius: 12px;
+  font-family: "JetBrainsMono Nerd Font", "Symbols Nerd Font Mono", sans-serif;
+  font-size: 14px;
+  min-height: 0;
+}
+
+window#waybar {
+  background: rgba(15, 15, 30, 0.6);
+  color: #cdd6f4;
+}
+
+#workspaces button {
+  padding: 0 8px;
+  color: #8aadf4;
+  background: transparent;
+}
+
+#workspaces button.active {
+  background: #b7bdf8;
+  color: #1e1e2e;
+}
+
+#battery,
+#bluetooth,
+#pulseaudio,
+#network,
+#tray,
+#custom-kdeconnect {
+  padding: 4px 10px;
+  margin: 0 4px;
+  background: rgba(60, 60, 100, 0.4);
+  color: #cdd6f4;
+}
+
+#battery.critical {
+  background: #f38ba8;
+  color: #1e1e2e;
+}
+
+#pulseaudio.muted {
+  background: #6c7086;
+}
+
+tooltip {
+  background: #1e1e2e;
+  color: #cdd6f4;
+  border-radius: 10px;
+}

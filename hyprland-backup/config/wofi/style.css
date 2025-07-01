@@ -1,0 +1,43 @@
+window {
+  margin: 0px;
+  border: 2px solid #3b4261; /* muted border */
+  background-color: rgba(26, 27, 38, 0.88); /* TokyoNight base with opacity */
+  border-radius: 14px;
+  font-family: "SauceCodePro Nerd Font", monospace;
+  font-size: 13px;
+  color: #c0caf5;
+}
+
+#outer-box {
+  margin: 18px;
+}
+
+#input {
+  margin: 10px 10px 18px 10px;
+  padding: 9px;
+  border: none;
+  border-radius: 10px;
+  background-color: rgba(59, 66, 97, 0.95); /* dark bluish input box */
+  color: #c0caf5;
+}
+
+#scroll {
+  margin: 0 10px 10px 10px;
+}
+
+#entry {
+  padding: 9px 12px;
+  margin-bottom: 4px;
+  border-radius: 8px;
+  background-color: transparent;
+  color: #a9b1d6;
+}
+
+#entry:selected {
+  background-color: #7aa2f7; /* highlight blue */
+  color: #1a1b26;
+}
+
+#text {
+  margin-left: 8px;
+}

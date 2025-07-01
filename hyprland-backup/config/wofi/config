@@ -1,0 +1,13 @@
+show = drun
+prompt = Search 
+term = kitty
+width = 600
+height = 400
+hide_scroll = false
+insensitive = true
+allow_markup = true
+no_actions = true
+location = center
+always_parse_args = true
+print_command = true
+columns = 1

@@ -1,0 +1,33 @@
+#!/bin/bash
+
+# Dim level as percentage (e.g., 40 means 40% dim, i.e. alpha = 0.6)
+if [ -z "$1" ]; then
+  echo "Usage: dim-screen <0–100>"
+  exit 1
+fi
+
+level=$1
+
+if ! [[ "$level" =~ ^[0-9]+$ ]] || [ "$level" -lt 0 ] || [ "$level" -gt 100 ]; then
+  echo "Enter number between 0 and 100"
+  exit 1
+fi
+
+# Kill any existing dim overlays
+pkill -f "xwinwrap.*dim.png"
+
+# Convert level to alpha (0.0 = no dim, 1.0 = black)
+alpha=$(awk "BEGIN { printf \"%.2f\", $level / 100 }")
+
+# Create black png overlay if it doesn't exist
+dim_png="/tmp/dim.png"
+if [ ! -f "$dim_png" ]; then
+  convert -size 1920x1080 xc:'rgba(0,0,0,255)' "$dim_png"
+fi
+
+# Launch fullscreen overlay
+xwinwrap -ov -g 1920x1080 -ni -argb -fs -- mpv --really-quiet --no-audio \
+  --loop --wid=WID --player-operation-mode=pseudo-gui \
+  --no-input-default-bindings --no-input-cursor \
+  --geometry=100%:100% --panscan=1.0 --vo=gpu \
+  --image-display-duration=999999 --alpha=$alpha "$dim_png" &

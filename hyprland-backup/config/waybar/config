@@ -1,0 +1,65 @@
+{
+  "layer": "top",
+  "position": "top",
+  "height": 32,
+
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": ["clock"],
+  "modules-right": [
+    "network",
+    "bluetooth",
+    "pulseaudio",
+    "battery",
+    "custom/kdeconnect",
+    "tray"
+  ],
+
+  "hyprland/workspaces": {
+    "disable-scroll": false,
+    "all-outputs": true
+  },
+
+ "clock": {
+    "interval": 1,
+    "format": "{:%I:%M:%S %p  %a %d/%m/%Y}",
+    "tooltip": true,
+    "tooltip-format": "{:%A, %B %d, %Y | %I:%M:%S %p}"
+ },
+
+  "network": {
+    "format-wifi": "  {essid}",
+    "format-ethernet": "  {ipaddr}",
+    "format-disconnected": "  No Net",
+    "on-click": "nm-connection-editor"
+  },
+
+  "bluetooth": {
+    "format-on": "  {device_alias}",
+    "format-off": "  Off",
+    "on-click": "blueman-manager"
+  },
+
+  "pulseaudio": {
+    "format": "  {volume}%",
+    "format-muted": "  Muted",
+    "scroll-step": 5
+  },
+
+  "battery": {
+    "format": "{icon}  {capacity}%",
+    "format-icons": ["", "", "", "", ""],
+    "interval": 30
+  },
+
+  "custom/kdeconnect": {
+    "format": "󰄡",
+    "tooltip": false,
+    "exec": "kdeconnect-cli -l | grep -q connected && echo '󰄡' || echo '󰤫'",
+    "interval": 10,
+    "on-click": "kdeconnect-app"
+  },
+
+  "tray": {
+    "spacing": 8
+  }
+}
